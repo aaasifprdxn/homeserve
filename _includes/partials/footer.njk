@@ -1,0 +1,52 @@
+<footer>
+    <div class="online-quote">
+        <p>Get an instant online quote for your home</p>
+        <form action="">
+            <input type="text" placeholder="Enter your zip code">
+            <input type="submit" value="GO">
+        </form>
+    </div>
+    <div class="footer-company-text">
+    	<p>HomeServe is an independent company</p>
+    </div>
+    <div class="footer-menu">
+        <div class='col-left'>
+	  		{% for menuItem in footer.menuItems %}
+	  		<div class="column">
+	  			<a class="head-title" href="{{ menuItem.url }}" title="{{ menuItem.title }}">{{menuItem.title}}</a>
+	  			<ul>
+	  				{% for subMenus in menuItem.subMenus %}
+	  					{% if subMenus.link == "false" %}
+    						<li><div>{{ subMenus.title }}</div></li>
+    					{% else %}
+	  						<li><a href="{{ subMenus.url }}" title="{{ subMenus.title }}">{{ subMenus.title }}</a></li>
+	  					{% endif %}
+	  				{% endfor %}		
+	  			</ul>
+	  		</div>
+	  		{% endfor %}
+	  	</div>
+        <div class="col-right">
+            <img src="/assets/images/home_logo.svg">
+            <img src="/assets/images/home_logo.svg">
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="wrapper">
+	  		<div class="footer-add-copy">
+                <p>© Copyright 2022 HomeServe USA. All rights reserved</p>
+	  			<p>© Copyright 2022 HomeServe USA. All rights reserved</p>
+	  		</div>
+            <div class="social">
+                <ul class="social-icons">
+					{% for socialIcon in footer.socialLinks %}
+					<li><a href="{{ socialIcon.link }}" title="{{ socialIcon.name }}" class="{{ socialIcon.class }}" target="_blank"></a></li>
+					{% endfor %}
+      			</ul>
+            </div>
+            <div class="footer-trademark">
+                <p>HOMESERVE®, the HOMESERVE Design® and HOMESERVE USA® are trademarks of HomeServe PLC. All third party entity names and logos are trademarks or registered trademarks of their respective holders.</p>
+            </div>
+        </div>
+    </div>
+</footer>

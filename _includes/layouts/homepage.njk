@@ -1,0 +1,64 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<div class="banner">
+    <div class="wrapper">
+        <p>See repair plans for your home</p>
+        <form action="">
+            <input type="text" placeholder="Enter Your Zip Code">
+            <input type="submit" value="VIEW PLANS">
+        </form>
+    </div>
+</div>    
+<div class="banner-desc">
+    <div class="container">
+        <div class="">
+            <h2>The leader in homeserve repair lorem ipsumThe leader in homeserve repaiThe leader in homeserve repaiThe leader in homeserve repai</h2>
+            <p>lorem ipsumThe leader in homeserve repaiThe leader in homeserve repaiThe leader in homeserve repai
+            lorem ipsumThe leader in homeserve repaiThe leader in homeserve repaiThe leader in homeserve repai
+            lorem ipsumThe leader in homeserve repaiThe leader in homeserve repaiThe leader in homeserve repai</p>
+        </div>
+    </div>
+</div>   
+<div class="service-section">
+    <div class="container">
+        <div class="row">
+            {% for service in collections.services %}
+            <div class="service-card">
+                <div class="inner">
+                    <div class="service-text">
+                        <a href="{{ service.data.heading.url }}"><h3>{{ service.data.heading.text }}</h3></a>
+                        <span>{{ service.data.spanText }}</span>
+                    </div>
+                    <div class="service-image">
+                        <img src="{{ service.data.img }}" alt="service-image" style="width:100%">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div> 
+
+<div class="step-section">           
+        <div class="container">
+            <div class="row">
+
+            {% for step in collections.steps %}
+                <div class="steps-card">
+                    <div class="inner">
+                        <a href="#">
+                            <img src="{{step.data.img}}" alt="">
+                        </a>
+                        <div class="step-text">
+                            <h4>{{ step.data.heading.text }} </h4>
+                            <p>{{ step.data.description.text }} </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            </div>
+        </div>      
+</div>
+{% endblock %}
